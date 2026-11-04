@@ -55,7 +55,10 @@
     .menu-foot{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#777}
     .hero{padding-top:78px;min-height:100svh;display:flex;flex-direction:column}
     .hero-visual{height:48svh;min-height:330px;position:relative;overflow:hidden}
-    .hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1);transform-origin:center}
+    .hero-copy>*{will-change:auto}
+    .hero h1 .hero-line{display:block;overflow:hidden;padding-bottom:.06em}
+    .hero h1 .hero-line-inner{display:inline-block}
     .hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.15),transparent 55%)}
     .hero-copy{padding:2.8rem 1.25rem 3.2rem;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
     .eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
@@ -63,7 +66,10 @@
     .hero h1 em{font-weight:400;color:var(--sage)}
     .hero-intro{font-size:.94rem;line-height:1.8;color:#666;max-width:31rem}
     .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
-    .button{min-height:48px;padding:0 1.35rem;display:inline-flex;align-items:center;justify-content:center;gap:.7rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s}
+    .button{min-height:48px;padding:0 1.35rem;display:inline-flex;align-items:center;justify-content:center;gap:.7rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .35s,color .35s,border-color .35s,transform .35s}
+    .button i{transition:transform .35s ease}
+    .button:hover i{transform:translateX(5px)}
+    .button:hover{transform:translateY(-2px)}
     .button-primary{background:var(--sage);color:white;border:1px solid var(--sage)}
     .button-primary:hover{background:#344D35;border-color:#344D35}
     .button-outline{border:1px solid #b9bcb2;color:var(--ink)}
@@ -85,7 +91,8 @@
     .services{padding-top:5.5rem;padding-bottom:5.5rem}
     .services-head{margin-bottom:2.2rem}
     .service-list{border-top:1px solid var(--line)}
-    .service-row{display:grid;grid-template-columns:2.3rem 1fr auto;align-items:center;gap:.65rem;min-height:92px;padding:1.1rem .25rem;border-bottom:1px solid var(--line);transition:background .3s,color .3s,padding .3s}
+    .service-row{display:grid;grid-template-columns:2.3rem 1fr auto;align-items:center;gap:.65rem;min-height:92px;padding:1.1rem .25rem;border-bottom:1px solid var(--line);transition:background .38s ease,color .38s ease,padding .38s ease}
+    .service-number{transition:color .38s ease,opacity .38s ease}
     .service-number{font-size:.65rem;color:var(--sage);letter-spacing:.1em}
     .service-row h3{font-family:"DM Serif Display",serif;font-size:clamp(1.45rem,6vw,2.5rem);font-weight:400;line-height:1.1}
     .service-row p{display:none}
@@ -124,18 +131,27 @@
     .whatsapp-float{position:fixed;z-index:70;right:1rem;bottom:1rem;width:56px;height:56px;display:grid;place-items:center;background:#25D366;color:white;font-size:1.6rem;box-shadow:0 5px 22px rgba(0,0,0,.18);transition:transform .2s}
     .whatsapp-float:hover{transform:translateY(-3px)}
     .reveal{opacity:1;transform:none}
-    .js-motion .reveal{opacity:0;transform:translateY(24px)}
+    .philosophy>img{transform:scale(1);transform-origin:center center}
+    .comparison-wrap img-comparison-slider{transform-origin:center center}
+    .slider-caption{transition:opacity .4s ease}
+    .whatsapp-float{transition:transform .3s ease,box-shadow .3s ease}
+    .whatsapp-float:hover{transform:translateY(-4px);box-shadow:0 9px 28px rgba(0,0,0,.22)}
+    .footer a,.desktop-nav a,.menu-links a{ text-decoration:none }
+    .footer-links a{position:relative}
+    .footer-links a:after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:currentColor;transition:right .3s ease}
+    .footer-links a:hover:after{right:0}
+    @media(hover:hover) and (pointer:fine){.service-row:hover{background:var(--sage);color:white;padding-left:1.6rem;padding-right:1.6rem}.service-row:hover .service-number,.service-row:hover .service-arrow,.service-row:hover p{color:white}.service-row:hover .service-number{opacity:.78}.service-row:hover .service-arrow{transform:translateX(7px)}}
     @media(min-width:768px){
       .site-header{height:88px;padding:0 3rem}.desktop-nav{display:flex;align-items:center;gap:2.2rem}.desktop-nav a{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;min-height:44px;display:flex;align-items:center;position:relative}.desktop-nav a:after{content:"";position:absolute;bottom:8px;left:0;width:0;height:1px;background:var(--sage);transition:width .25s}.desktop-nav a:hover:after{width:100%}.menu-toggle{display:none}
       .hero{padding-top:88px;min-height:780px;height:100svh;max-height:1050px;display:grid;grid-template-columns:40% 60%;align-items:stretch;overflow:hidden}.hero-copy{grid-column:1;grid-row:1;padding:4rem 2.5rem 4rem 3rem}.hero-visual{grid-column:2;grid-row:1;height:auto;min-height:0;margin-right:-7vw}.hero h1{font-size:clamp(4rem,7vw,7.4rem)}.hero-intro{font-size:.88rem}.hero-index{margin-top:3rem}
       .section{padding:7rem 3rem}.transform-head{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:3rem;margin-bottom:3rem}.transform-head .section-intro{justify-self:end}.comparison-wrap{max-width:1280px;margin:auto}img-comparison-slider img{height:clamp(420px,54vw,700px)}
-      .services-head{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:3rem;margin-bottom:3rem}.services-head .section-intro{justify-self:end}.service-row{grid-template-columns:4rem minmax(260px,1fr) minmax(220px,.7fr) 2rem;min-height:118px;padding:1.3rem 1rem}.service-row p{display:block;font-size:.76rem;line-height:1.7;color:#777;max-width:320px;transition:color .3s}.service-row h3{font-size:2.3rem}.service-row:hover{background:var(--sage);color:white;padding-left:1.6rem;padding-right:1.6rem}.service-row:hover .service-number,.service-row:hover .service-arrow,.service-row:hover p{color:white}.service-row:hover .service-arrow{transform:translateX(5px)}
+      .services-head{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:3rem;margin-bottom:3rem}.services-head .section-intro{justify-self:end}.service-row{grid-template-columns:4rem minmax(260px,1fr) minmax(220px,.7fr) 2rem;min-height:118px;padding:1.3rem 1rem}.service-row p{display:block;font-size:.76rem;line-height:1.7;color:#777;max-width:320px;transition:color .38s ease}.service-row h3{font-size:2.3rem}
       .philosophy{min-height:760px}.philosophy-copy{padding:6rem 3rem}.philosophy-copy h2{font-size:clamp(4.5rem,8vw,7.5rem)}
       .testimonial{padding:8rem 3rem}.contact-grid{grid-template-columns:.9fr 1.1fr;gap:6rem}.contact .section-heading{max-width:8ch}.contact-form{gap:1.5rem}
       .footer{padding:3.5rem 3rem}.footer-top{flex-direction:row;justify-content:space-between;align-items:center}.footer-bottom{flex-direction:row;justify-content:space-between}
     }
     @media(min-width:1100px){.site-header{padding:0 5vw}.hero-copy{padding-left:5vw;padding-right:3rem}.section{padding-left:5vw;padding-right:5vw}.philosophy-copy{padding-left:5vw}.footer{padding-left:5vw;padding-right:5vw}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.js-motion .reveal{opacity:1;transform:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important}.hero-visual img,.philosophy>img{transform:none!important}}
   </style>
 </head>
 <body>
@@ -173,7 +189,7 @@
       </div>
       <div class="hero-copy">
         <span class="eyebrow">Landscape design · Garden care</span>
-        <h1>THE ART OF THE <em>GARDEN.</em></h1>
+        <h1><span class="hero-line"><span class="hero-line-inner">THE ART OF THE</span></span><span class="hero-line"><span class="hero-line-inner"><em>GARDEN.</em></span></span></h1>
         <p class="hero-intro">We shape outdoor spaces into living environments — considered, cultivated and made to be enjoyed. Discover a more thoughtful approach to your landscape.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#contact">Start a project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
@@ -265,19 +281,24 @@
 
   <script>
     (() => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hasGsap = !!(window.gsap && window.ScrollTrigger && !reduceMotion);
       const preloader = document.getElementById('preloader');
+      let preloaderHidden = false;
       const hidePreloader = () => {
-        if (!preloader) return;
+        if (!preloader || preloaderHidden) return;
+        preloaderHidden = true;
         preloader.classList.add('is-hidden');
         window.setTimeout(() => preloader.remove(), 850);
       };
       if (document.readyState === 'complete') hidePreloader();
       else window.addEventListener('load', hidePreloader, { once: true });
-      window.setTimeout(hidePreloader, 3500);
+      window.setTimeout(hidePreloader, 2500);
 
       const toggle = document.getElementById('menuToggle');
       const close = document.getElementById('menuClose');
       const menu = document.getElementById('mobileMenu');
+      const menuLinks = [...menu.querySelectorAll('.menu-links a')];
       const openMenu = () => {
         menu.classList.add('is-open');
         menu.setAttribute('aria-hidden', 'false');
@@ -285,34 +306,31 @@
         toggle.setAttribute('aria-label', 'Close navigation menu');
         document.body.classList.add('menu-open');
         close.focus();
+        if (hasGsap) gsap.fromTo(menuLinks, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: .55, stagger: .075, ease: 'power3.out', delay: .12, overwrite: true });
       };
-      const closeMenu = () => {
+      const closeMenu = (returnFocus = true) => {
         menu.classList.remove('is-open');
         menu.setAttribute('aria-hidden', 'true');
         toggle.setAttribute('aria-expanded', 'false');
         toggle.setAttribute('aria-label', 'Open navigation menu');
         document.body.classList.remove('menu-open');
-        toggle.focus();
+        if (hasGsap) gsap.set(menuLinks, { clearProps: 'transform,opacity' });
+        if (returnFocus) toggle.focus();
       };
       toggle.addEventListener('click', () => menu.classList.contains('is-open') ? closeMenu() : openMenu());
-      close.addEventListener('click', closeMenu);
-      menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-        menu.classList.remove('is-open');
-        menu.setAttribute('aria-hidden', 'true');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-        document.body.classList.remove('menu-open');
-      }));
+      close.addEventListener('click', () => closeMenu());
+      menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu(false)));
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+        if (event.key === 'Tab' && menu.classList.contains('is-open')) {
+          const focusable = [close, ...menuLinks];
+          const first = focusable[0], last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        }
       });
       window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768 && menu.classList.contains('is-open')) {
-          menu.classList.remove('is-open');
-          menu.setAttribute('aria-hidden', 'true');
-          toggle.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('menu-open');
-        }
+        if (window.innerWidth >= 768 && menu.classList.contains('is-open')) closeMenu(false);
       });
 
       const form = document.getElementById('contactForm');
@@ -322,27 +340,62 @@
         if (!form.reportValidity()) return;
         form.reset();
         success.classList.add('is-visible');
-        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
       });
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      if ('IntersectionObserver' in window) {
-        document.documentElement.classList.add('js-motion');
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-      }
-      if (window.gsap && window.ScrollTrigger && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // All content is visible by default. GSAP only enhances it after it is ready.
+      if (hasGsap) {
         gsap.registerPlugin(ScrollTrigger);
-        gsap.fromTo('.philosophy > img', { scale: 1.08 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.philosophy', start: 'top bottom', end: 'bottom top', scrub: true } });
+        const heroImage = document.querySelector('.hero-visual img');
+        const heroLines = document.querySelectorAll('.hero-line-inner');
+        const heroEyebrow = document.querySelector('.hero .eyebrow');
+        const heroIntro = document.querySelector('.hero-intro');
+        const heroActions = document.querySelector('.hero-actions');
+        const heroIndex = document.querySelector('.hero-index');
+
+        gsap.set(heroImage, { scale: 1.08 });
+        gsap.set([heroEyebrow, heroIntro, heroActions, heroIndex], { autoAlpha: 0, y: 18 });
+        gsap.set(heroLines, { yPercent: 110 });
+        const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: .08 });
+        heroTimeline.to(heroImage, { scale: 1, duration: 1.8, ease: 'power2.out' }, 0)
+          .to(heroEyebrow, { autoAlpha: 1, y: 0, duration: .65 }, .2)
+          .to(heroLines, { yPercent: 0, duration: .85, stagger: .16 }, .35)
+          .to(heroIntro, { autoAlpha: 1, y: 0, duration: .7 }, .95)
+          .to(heroActions, { autoAlpha: 1, y: 0, duration: .65 }, 1.12)
+          .to(heroIndex, { autoAlpha: 1, y: 0, duration: .6 }, 1.28);
+
+        // Restrained scroll-linked depth, disabled on narrow screens.
+        if (window.matchMedia('(min-width: 768px)').matches) {
+          gsap.to(heroImage, { yPercent: 7, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .7 } });
+          gsap.to('.philosophy > img', { scale: 1.08, yPercent: 4, ease: 'none', scrollTrigger: { trigger: '.philosophy', start: 'top bottom', end: 'bottom top', scrub: .8 } });
+        } else {
+          gsap.to('.philosophy > img', { scale: 1.045, ease: 'none', scrollTrigger: { trigger: '.philosophy', start: 'top bottom', end: 'bottom top', scrub: .8 } });
+        }
+
+        // One restrained reveal per meaningful content group; no competing observer.
+        const revealGroups = [
+          '.transform-head', '.comparison-wrap', '.slider-caption', '.services-head',
+          '.service-row', '.philosophy-copy > *', '.quote-mark', '.quote-text',
+          '.quote-credit', '.contact-grid > .reveal', '.contact-form > *',
+          '.footer-top > *', '.footer-bottom > *'
+        ];
+        revealGroups.forEach(selector => {
+          const nodes = gsap.utils.toArray(selector).filter(node => !node.closest('.hero'));
+          if (!nodes.length) return;
+          gsap.fromTo(nodes, { autoAlpha: 0, y: 26 }, {
+            autoAlpha: 1, y: 0, duration: .82, stagger: nodes.length > 1 ? .12 : 0,
+            ease: 'power3.out', overwrite: 'auto',
+            scrollTrigger: { trigger: nodes[0], start: 'top 88%', once: true }
+          });
+        });
+
+        // Keep comparison component native: animate only its containing region and caption.
+        gsap.fromTo('.comparison-wrap', { scale: .985 }, {
+          scale: 1, duration: 1, ease: 'power2.out',
+          scrollTrigger: { trigger: '.comparison-wrap', start: 'top 88%', once: true }
+        });
+        ScrollTrigger.refresh();
       }
     })();
   </script>
