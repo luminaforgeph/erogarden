@@ -368,7 +368,7 @@
         // Restrained scroll-linked depth, disabled on narrow screens.
         if (window.matchMedia('(min-width: 768px)').matches) {
           gsap.to(heroImage, { yPercent: 7, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .7 } });
-          gsap.to('.philosophy > img', { scale: 1.08, yPercent: 4, ease: 'none', scrollTrigger: { trigger: '.philosophy', start: 'top bottom', end: 'bottom top', scrub: .8 } });
+          gsap.fromTo('.philosophy > img', { scale: 1.08, yPercent: 4 }, { scale: 1, yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.philosophy', start: 'top bottom', end: 'bottom top', scrub: .8 } });
         } else {
           gsap.to('.philosophy > img', { scale: 1.045, ease: 'none', scrollTrigger: { trigger: '.philosophy', start: 'top bottom', end: 'bottom top', scrub: .8 } });
         }
